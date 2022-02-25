@@ -249,7 +249,7 @@ describe Statuspageio::Client::Incident do
 
       before do
         stub_request(:post, request_url).
-          with(body: options.to_json).
+          with(body: { incident: options }.to_json).
           to_return(
             headers: { 'Content-Type' => 'application/json' },
             status: [400, 'Bad Request'],
